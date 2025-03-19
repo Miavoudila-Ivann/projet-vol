@@ -1,0 +1,5 @@
+USE webcinema;
+
+ALTER TABLE `reservation`
+    ADD CONSTRAINT `fk_reservation_seance` FOREIGN KEY (`ref_seance`) REFERENCES `seance` (`id_seance`) ON DELETE CASCADE,
+    ADD CONSTRAINT `fk_reservation_user` FOREIGN KEY (`ref_user`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE CASCADE;
