@@ -7,6 +7,8 @@ private $dateVole;
 private $heureVole;
 private $villeDep;
 private $villeArr;
+private $refAvion;
+private $refCompagnie;
 
     /**
      * @return mixed
@@ -86,6 +88,38 @@ private $villeArr;
     public function setVilleArr($villeArr)
     {
         $this->villeArr = $villeArr;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRefAvion()
+    {
+        return $this->refAvion;
+    }
+
+    /**
+     * @param mixed $refAvion
+     */
+    public function setRefAvion($refAvion)
+    {
+        $this->refAvion = $refAvion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRefCompagnie()
+    {
+        return $this->refCompagnie;
+    }
+
+    /**
+     * @param mixed $refCompagnie
+     */
+    public function setRefCompagnie($refCompagnie)
+    {
+        $this->refCompagnie = $refCompagnie;
     }
 
     public function __construct(array $donnees)

@@ -10,25 +10,24 @@ class CompagnieRepository{
 
     public function ajouterCompagnie(Compagnie $compagnie)
     {
-        $sql = "INSERT INTO compagnie (modele_avion,capacite_avion,img_avion) VALUES (:modele_avion, :capacite_avion, :img_avion)";
+        $sql = "INSERT INTO compagnie (nom_compagnie,img_compagnie) VALUES (:nom_compagnie,:img_compagnie)";
         $req = $this->bdd->prepare($sql);
 
         $result = $req->execute(array(
-            'modele_avion' => $avion->getModeleAvion(),
-            'capacite_avion' => $avion->getcapaciteAvion(),
-            'img_avion' => $avion->getImgAvion()
+            'nom_compagnie' => $compagnie->getNomCompagnie(),
+            'img_compagnie' => $compagnie->getImgcompagnie()
         ));
 
         return $result;
     }
 
-    public function supprimerAvion($idAvion)
+    public function supprimerCompagnie($idCompagnie)
     {
         // Assurez-vous de supprimer d'abord toutes les dépendances, ici la table 'film'
-        $sql = "DELETE FROM avion WHERE id_avion = :id_avion";
+        $sql = "DELETE FROM compgnie WHERE id_compagnie = :id_avion";
         $req = $this->bdd->prepare($sql);
         $result = $req->execute(array(
-            'id_avion' => $idAvion
+            'id_compagnie' => $idCompagnie
         ));
 
         return $result;
@@ -36,7 +35,7 @@ class CompagnieRepository{
 
     public function modifierAvion(Avion $avion)
     {
-        $sql = "UPDATE avion SET modele_avion = :modele_avion, capacite_avion = :capacite_avion, img_avion = :img_avion WHERE id_avion = :id_avion";
+        $sql = "UPDATE compagnie SET nom_compagnie = :nom_compagnie, img_compagnie = :img_compagnie WHERE id_compagnie = :id_compagnie";
         $req = $this->bdd->prepare($sql);
         $req->execute([
             'id_avion' => $avion->getIdAvion(),
