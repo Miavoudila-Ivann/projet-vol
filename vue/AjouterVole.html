@@ -1,10 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un vol</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            border-right: 1px solid #444;
+            position: fixed;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+        .sidebar-header {
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            background-color: #222;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 2em;
+            color: #444;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin: auto;
+        }
+        .form-container input, .form-container button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        .form-container button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
+
+<div class="sidebar">
+    <div class="sidebar-header">MATERIAL ADMIN PRO</div>
+    <ul class="sidebar-menu">
+        <li onclick="window.location.href='../src/traitement/AjouterVoleTrt.php'">Ajouter un vol</li>
+        <li onclick="window.location.href='ModifierVole.html'">Modifier un vol</li>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>Ajouter un avion</h1>
+    <div class="form-container">
+        <form action="../src/traitement/AjouterVoleTrt.php" method="POST">
+            <label for="date_vole">Date du vol :</label>
+            <input type="text" id="date_vole" name="date_vole" required>
+
+            <label for="heure_vol">heure du vol :</label>
+            <input type="number" id="heure_vol" name="heure_vol" required>
+
+            <label for="ville_arr">ville d'arriver du vol :</label>
+            <input type="text" id="ville_arr" name="ville_arr" required>
+
+            <label for="ville_dep">ville de depart du vol :</label>
+            <input type="text" id="ville_dep" name="ville_dep" required>
+
+            <label for="ref_avion">avion du vol :</label>
+            <input type="text" id="ref_avion" name="ref_avion" required>
+
+            <label for="ref_compagnie">compagnie du vol :</label>
+            <input type="text" id="ref_compagnie" name="ref_compagnie" required>
+
+            <button type="submit" name="ok">Ajouter la compagnie</button>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

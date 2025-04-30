@@ -1,10 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Room - Gestion des Vols</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../assets/css/styles2.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #343a40;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+        .sidebar-header {
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            background-color: #222;
+        }
+        .sidebar-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar-menu li {
+            padding: 15px 20px;
+            font-size: 1.1em;
+            color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .sidebar-menu li:hover {
+            background-color: #555;
+        }
+        .menu-header {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #777;
+            padding: 10px 20px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.9em;
+            padding: 15px;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 2em;
+            color: #444;
+        }
+    </style>
 </head>
 <body>
+
+<div class="sidebar">
+    <div class="sidebar-header">MATERIAL ADMIN PRO</div>
+    <ul class="sidebar-menu">
+        <li>Overview</li>
+        <li class="menu-header">Gestion des vols</li>
+        <ul>
+            <li onclick="window.location.href='AjouterVole.html'">Ajouter Vol</li>
+            <li onclick="window.location.href='ModifierVole.html'">Modifier Vol</li>
+            <li onclick="window.location.href='SupprimerVole.html'">Supprimer Vol</li>
+        </ul>
+
+        <li class="menu-header">Gestion des compagnies</li>
+        <ul>
+            <li onclick="window.location.href='AjouterCompagnie.html'">Ajouter Compagnies</li>
+            <li onclick="window.location.href='ModifierCompagnie.html'">Modifier Compagnies</li>
+            <li onclick="window.location.href='SupprimerCompagnie.html'">Supprimer Compagnies</li>
+        </ul>
+
+        <li class="menu-header">Gestion des Utilisateurs</li>
+        <ul>
+            <li onclick="window.location.href='AjouterUtilisateur.html'">Ajouter Utilisateur</li>
+            <li onclick="window.location.href='ModifierUtilisateur.html'">Modifier Utilisateur</li>
+            <li onclick="window.location.href='SupprimerUtilisateur.html'">Supprimer Utilisateur</li>
+        </ul>
+
+        <li class="menu-header">Gestion des Avions</li>
+        <ul>
+            <li onclick="window.location.href='AjouterAvion.html'">Ajouter Avion</li>
+            <li onclick="window.location.href='ModifierAvion.html'">Modifier Avion</li>
+            <li onclick="window.location.href='SupprimerAvion.html'">Supprimer Avion</li>
+        </ul>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>Page principale de gestion des vols</h1>
+    <p>Choisissez une option dans le menu latéral pour ajouter ou modifier un vol ou un utilisateur ou une compagnie ou un avion.</p>
+</div>
 
 </body>
 </html>

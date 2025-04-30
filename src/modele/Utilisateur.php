@@ -1,27 +1,43 @@
 <?php
 class Utilisateur
 {
-    private $nom;
+    private $nom_uti;
     private $idUtilisateur;
-    private $prenom;
-    private $email;
+    private $prenom_uti;
+    private $mail_uti;
     private $mdp;
     private $role;
 
     /**
      * @return mixed
      */
-    public function getNom()
+    public function getNomUti()
     {
-        return $this->nom;
+        return $this->nom_uti;
     }
 
     /**
-     * @param mixed $nom
+     * @param mixed $nom_uti
      */
-    public function setNom($nom)
+    public function setNomUti($nom_uti)
     {
-        $this->nom = $nom;
+        $this->nom_uti = $nom_uti;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrenomUti()
+    {
+        return $this->prenom_uti;
+    }
+
+    /**
+     * @param mixed $prenom_uti
+     */
+    public function setPrenomUti($prenom_uti)
+    {
+        $this->prenom_uti = $prenom_uti;
     }
 
     /**
@@ -43,17 +59,17 @@ class Utilisateur
     /**
      * @return mixed
      */
-    public function getPrenom()
+    public function getMailUti()
     {
-        return $this->prenom;
+        return $this->mail_uti;
     }
 
     /**
-     * @param mixed $prenom
+     * @param mixed $mail_uti
      */
-    public function setPrenom($prenom)
+    public function setMailUti($mail_uti)
     {
-        $this->prenom = $prenom;
+        $this->mail_uti = $mail_uti;
     }
 
     /**
@@ -75,22 +91,6 @@ class Utilisateur
     /**
      * @return mixed
      */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getRole()
     {
         return $this->role;
@@ -103,6 +103,8 @@ class Utilisateur
     {
         $this->role = $role;
     }
+
+
 
 
     public function __construct(array $donnees)

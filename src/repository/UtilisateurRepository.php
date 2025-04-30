@@ -13,21 +13,21 @@ class UtilisateurRepository
     {
         $hashedPassword = password_hash($utilisateur->getMdp(), PASSWORD_DEFAULT);
 
-        $req = $this->bdd->getBdd()->prepare('INSERT INTO utilisateur (prenom, nom, email, mdp) VALUES (:prenom, :nom, :email, :mdp)');
+        $req = $this->bdd->getBdd()->prepare('INSERT INTO utilisateur (prenom_uti, nom_uti, mail_uti, mdp) VALUES (:prenom_uti, :nom_uti, :mail_uti, :mdp)');
         $success = $req->execute([
-            "nom" => $utilisateur->getNom(),
-            "prenom" => $utilisateur->getPrenom(),
-            "email" => $utilisateur->getEmail(),
+            "nom_uti" => $utilisateur->getNom(),
+            "prenom_uti" => $utilisateur->getPrenom(),
+            "email_uti" => $utilisateur->getEmail(),
             "mdp" => $hashedPassword
         ]);
 
         return $success;
     }
 
-    public function connexion($email, $mdp)
+    public function connexion($mail_uti, $mdp)
     {
-        $req = $this->bdd->getBdd()->prepare('SELECT * FROM utilisateur WHERE email = :email');
-        $req->execute(['email' => $email]);
+        $req = $this->bdd->getBdd()->prepare('SELECT * FROM utilisateur WHERE mail_uti = :mail_uti');
+        $req->execute(['mail' => $mail_uti]);
 
         $utilisateur = $req->fetch(PDO::FETCH_ASSOC);
         var_dump($utilisateur);
@@ -40,9 +40,9 @@ class UtilisateurRepository
     }
 
     public function getUtilisateur($email) {
-        $query = "SELECT * FROM utilisateur WHERE email = :email";
+        $query = "SELECT * FROM utilisateur WHERE mail_uti = :mail_uti";
         $stmt = $this->bdd->getBdd()->prepare($query);
-        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':mail_uti', $mail_uti);
         $stmt->execute();
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -55,13 +55,13 @@ class UtilisateurRepository
     {
 
         $req = $this->bdd->getBdd()->prepare('UPDATE utilisateur 
-            SET prenom = :prenom, nom = :nom, email = :email, role = :role
+            SET prenom_uti = :prenom_uti, nom_uti = :nom, $mail_uti = :mail_uti, role = :role
             WHERE id_utilisateur = :id_utilisateur');
         return $req->execute([
             "id_utilisateur" => $utilisateur->getIdUtilisateur(),
-            "nom" => $utilisateur->getNom(),
-            "prenom" => $utilisateur->getPrenom(),
-            "email" => $utilisateur->getEmail(),
+            "nom_uti" => $utilisateur->getNom(),
+            "prenom_uti" => $utilisateur->getPrenom(),
+            "mail_uti" => $utilisateur->getEmail(),
             "role" => $utilisateur->getRole()
         ]);
     }
