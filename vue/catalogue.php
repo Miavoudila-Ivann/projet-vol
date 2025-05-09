@@ -61,7 +61,7 @@ session_start();
 <section class="py-1" id="affiche">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-3 gx-lg-4 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
-            <?php foreach ($vols $vols) { ?>
+            <?php foreach ($vols as $vols) { ?>
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Détails du vol -->

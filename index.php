@@ -1,15 +1,15 @@
 <?php
 $bdd = new PDO(
     'mysql:host=localhost;
-        dbname=webcinema;
+        dbname=vol;
         charset=utf8',
     'root',
     ''
 );
 session_start();
 // port=3307;
-$films = $bdd->query("SELECT * FROM film ORDER BY id_film DESC LIMIT 3")->fetchAll(PDO::FETCH_ASSOC);
-$isConnected = isset($_SESSION['user_id']);
+$films = $bdd->query("SELECT * FROM vol ORDER BY id_vol DESC LIMIT 3")->fetchAll(PDO::FETCH_ASSOC);
+$isConnected = isset($_SESSION['id_utilisateur']);
 $isAdmin = $isConnected && $_SESSION['role'] == 'Admin'; // On vérifie si l'utilisateur est admin
 ?>
 
@@ -22,7 +22,7 @@ $isAdmin = $isConnected && $_SESSION['role'] == 'Admin'; // On vérifie si l'uti
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Movie Room</title>
+    <title>Voyage voyage</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -36,7 +36,7 @@ $isAdmin = $isConnected && $_SESSION['role'] == 'Admin'; // On vérifie si l'uti
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="#page-top">Movie Room</a>
+        <a class="navbar-brand" href="#page-top">Voyage voyage</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -66,11 +66,11 @@ $isAdmin = $isConnected && $_SESSION['role'] == 'Admin'; // On vérifie si l'uti
     </div>
 </nav>
 <!-- Masthead-->
-<header class="masthead" style="background-image: url('assets/img/cinema-world.jpg'); background-size: cover; background-position: center;">
+<header class="masthead" style="background-image: url('assets/img/voyage.jpg'); background-size: cover; background-position: center;">
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
             <div class="text-center">
-                <h1 class="mx-auto my-0 text-uppercase">Movie Room</h1>
+                <h1 class="mx-auto my-0 text-uppercase">Voyage voyage</h1>
             </div>
         </div>
     </div>
@@ -80,13 +80,13 @@ $isAdmin = $isConnected && $_SESSION['role'] == 'Admin'; // On vérifie si l'uti
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8">
-                <h2 class="text-white mb-4">Cinéma Français</h2>
+                <h2 class="text-white mb-4">Voyage Voyage</h2>
                 <p class="text-white-50">
-                    Le meilleur et le plus grand cinema de france
+                    Les meilleures Voyages
                 </p>
             </div>
         </div>
-        <img class="img-fluid" src="assets/img/rb_30508.png" alt="..." />
+        <img class="img-fluid" src="assets/img/voyage.jpg" alt="..." />
     </div>
 </section>
 <!-- Projects-->
@@ -94,23 +94,23 @@ $isAdmin = $isConnected && $_SESSION['role'] == 'Admin'; // On vérifie si l'uti
     <div class="container px-4 px-lg-5">
         <!-- Featured Project Row-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/cine.jpg" height="600" width="900" alt="..." /></div>
+            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/voyage.jpg" height="600" width="900" alt="..." /></div>
             <div class="col-xl-4 col-lg-5">
                 <div class="featured-text text-center text-lg-left">
                     <h4>Nombre de place</h4>
-                    <p class="text-black-50 mb-0">Movie Room le plus grand cinema de france situé a Paris, qui possede 30 salles avec en moyenne 800 siège par salle.</p>
+                    <p class="text-black-50 mb-0">Voyage voyage</p>
                 </div>
             </div>
         </div>
         <!-- Project One Row-->
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-            <div class="col-lg-6"><img class="img-fluid" src="assets/img/siegelit.jpg" alt="..." /></div>
+            <div class="col-lg-6"><img class="img-fluid" src="assets/img/voyage.jpg" alt="..." /></div>
             <div class="col-lg-6">
                 <div class="bg-black text-center h-100 project">
                     <div class="d-flex h-100">
                         <div class="project-text w-100 my-auto text-center text-lg-left">
-                            <h4 class="text-white">Night room</h4>
-                            <p class="mb-0 text-white-50">Movie Room propose des lit-double pour ceux qui souhaitrerais étre dans la confonrd a deux ou seul. </p>
+                            <h4 class="text-white">Voyage Voyage</h4>
+                            <p class="mb-0 text-white-50">Voyage Voyage propose des voyages a des prix exceptionnelle pour ceux qui souhaitrerais voyager pour pas chère. </p>
                         </div>
                     </div>
                 </div>
@@ -136,17 +136,17 @@ $isAdmin = $isConnected && $_SESSION['role'] == 'Admin'; // On vérifie si l'uti
 <section class="py-1" id="affiche">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-3 gx-lg-4 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
-            <?php foreach ($films as $film){?>
+            <?php foreach ($vols as $vols){?>
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Image du film -->
-                        <img class="card-img-top" src="<?= htmlspecialchars($film['image']) ?>" alt="<?= htmlspecialchars($film['nom_film']) ?>" />
+                        <img class="card-img-top" src="<?= htmlspecialchars($vols['image']) ?>" alt="<?= htmlspecialchars($vols['nom_film']) ?>" />
                         <!-- Détails du film -->
                         <div class="card-body p-4">
                             <div class="text-center">
-                                <h5 class="fw-bolder"><?= htmlspecialchars($film['nom_film']) ?></h5>
+                                <h5 class="fw-bolder"><?= htmlspecialchars($vols['nom_film']) ?></h5>
                                 <div class="text-center">
-                                    <?= htmlspecialchars($film['genre']) ?>
+                                    <?= htmlspecialchars($vols['genre']) ?>
                                 </div>
                             </div>
                         </div>
@@ -205,10 +205,6 @@ $isAdmin = $isConnected && $_SESSION['role'] == 'Admin'; // On vérifie si l'uti
 <!-- Core theme JS-->
 <script src="assets/js/scripts.js"></script>
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-
-
-
 
 </body>
 </html>
